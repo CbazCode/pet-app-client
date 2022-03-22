@@ -14,15 +14,12 @@ export const Register = () => {
   const { handleSubmit, register } = form;
 
   const onSubmit = (values: RegisterValues) => {
-    console.log({ values });
     registerUser(values, {
       onSuccess: data => {
         console.log("succeed");
-        console.log({ data });
       },
       onError: error => {
         console.log("error");
-        console.log({ error });
       }
     });
   };

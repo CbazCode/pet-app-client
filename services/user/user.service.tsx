@@ -8,9 +8,8 @@ const baseUrl = "/users";
 
 export const registerUser = async (user: User) => {
   try {
-    console.log({ user });
     const { data } = await axios.post(`${baseUrl}/signUp`, user);
-    console.log({ data });
+
     return data;
   } catch (error: any) {
     const { response } = error;
@@ -24,7 +23,7 @@ export const registerUser = async (user: User) => {
 export const loginUser = async (user: User) => {
   try {
     const { data } = await axios.post(`${baseUrl}/signIn`, user);
-    console.log({ data });
+
     return data;
   } catch (error: any) {
     const { response } = error;
