@@ -1,7 +1,11 @@
-import { Button } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+
+// Components
+import { Login } from "../components/Login/Login";
+import { Register } from "../components/Register/Register";
+// Styles
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -14,7 +18,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <Button>Hello</Button>
+        <Register />
       </main>
 
       <footer className={styles.footer}>
