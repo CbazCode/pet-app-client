@@ -1,8 +1,11 @@
 // Interfaces and types from component PetsDetails
 
+// Types
+import { Pet } from "../../services/pet/pet.service.types";
+
 // Component Props
 export interface PetsDetailsProps {
-  pets: any[];
+  pets: Pet[];
 }
 
 // Styled Component Props

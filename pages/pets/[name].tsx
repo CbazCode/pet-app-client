@@ -3,9 +3,11 @@ import PetsDetails from "../../components/PetsDetails/PetsDetails";
 
 // Services
 import { fetchPet } from "../../services/pet/pet.service";
+// Types
+import { Pet } from "../../services/pet/pet.service.types";
 
 interface Props {
-  pets: any[];
+  pets: Pet[];
 }
 
 const PetsDetailsScreen: React.FC<Props> = props => {
@@ -18,7 +20,7 @@ export const getServerSideProps: GetStaticProps = async ctx => {
   const { params } = ctx;
   const { name } = params as { name: string };
 
-  let pets: any[] = [];
+  let pets: Pet[] = [];
   try {
     const petsFetched = await fetchPet(name);
     pets = [...petsFetched];

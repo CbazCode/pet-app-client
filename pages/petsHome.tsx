@@ -4,8 +4,14 @@ import { GetStaticProps } from "next";
 import PetsHome from "../components/PetsHome/PetsHome";
 // Services
 import { fetchPets } from "../services/pet/pet.service";
+// Types
+import { Pet } from "../services/pet/pet.service.types";
 
-const PetsHomePage = (props: any) => {
+interface Props {
+  pets: Pet[];
+}
+
+const PetsHomePage: React.FC<Props> = props => {
   const { pets } = props;
   return (
     <div className="pets-home">
@@ -15,7 +21,7 @@ const PetsHomePage = (props: any) => {
 };
 
 export const getServerSideProps: GetStaticProps = async () => {
-  let pets: any[] = [];
+  let pets: Pet[] = [];
   try {
     const petsFetched = await fetchPets();
     pets = [...petsFetched];
