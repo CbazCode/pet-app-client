@@ -1,5 +1,6 @@
 import { FormControl, FormLabel, Input } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
+import Link from "next/link";
 import { FormProvider, useForm } from "react-hook-form";
 
 // Services
@@ -27,6 +28,7 @@ export const Register = () => {
   return (
     <>
       <div>
+        <h1>Register</h1>
         <FormProvider {...form}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <FormControl>
@@ -42,6 +44,9 @@ export const Register = () => {
               <Input id="password" type="password" {...register("password")} />
             </FormControl>
             <Button type="submit">Register</Button>
+            <Link href="/">
+              <a>Inicia sesion</a>
+            </Link>
           </form>
         </FormProvider>
       </div>
