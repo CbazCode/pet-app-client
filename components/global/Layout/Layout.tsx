@@ -1,6 +1,9 @@
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
+import { Box } from "@chakra-ui/react";
 
+// Components
+import Loading from "../Loading/Loading";
 // Contexts
 import useGlobal from "../../../contexts/global/global.hooks";
 import useUser from "../../../contexts/user/user.hooks";
@@ -16,26 +19,26 @@ const Layout: React.FC<Props> = props => {
   const { setAuthInfo, authInfo } = useUser();
 
   useEffect(() => {
-    const authInfo = localStorage.getItem("authInfo");
+    const authInfoLocalStorage = localStorage.getItem("authInfo");
     const isLoginOrRegister = pathname === "/" || pathname === "/register";
 
-    if (!authInfo && !isLoginOrRegister) {
+    if (!authInfoLocalStorage && !isLoginOrRegister) {
       router.push("/");
       return;
     }
-    if (authInfo && !isLoginOrRegister) {
-      if (!authInfo) setAuthInfo(JSON.parse(authInfo));
+    if (authInfoLocalStorage && !isLoginOrRegister) {
+      if (!!authInfo) setAuthInfo(JSON.parse(authInfoLocalStorage));
       return;
     }
-    if (authInfo && isLoginOrRegister) {
+    if (authInfoLocalStorage && isLoginOrRegister) {
       router.push("/petsHome");
       return;
     }
   }, [setAuthInfo]);
   return (
-    <div className="Layout">
-      {children} {loading ? <p>Loading...</p> : null}
-    </div>
+    <Box position="relative">
+      {children} {loading ? <Loading /> : null}
+    </Box>
   );
 };
 

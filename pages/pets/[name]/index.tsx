@@ -1,10 +1,10 @@
 import { GetStaticProps } from "next";
-import PetsDetails from "../../components/PetsDetails/PetsDetails";
+import PetsDetails from "../../../components/PetsDetails/PetsDetails";
 
 // Services
-import { fetchPet } from "../../services/pet/pet.service";
+import { fetchPet } from "../../../services/pet/pet.service";
 // Types
-import { Pet } from "../../services/pet/pet.service.types";
+import { Pet } from "../../../services/pet/pet.service.types";
 
 interface Props {
   pets: Pet[];

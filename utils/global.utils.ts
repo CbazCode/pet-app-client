@@ -18,3 +18,7 @@ export const uploadImage = async (file: any) => {
     throw new Error(error.message);
   }
 };
+
+export const toCapitalizeString = (str: string) => {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};

@@ -2,11 +2,13 @@ import { Box, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import { format } from "date-fns";
 
+// Utils
+import { toCapitalizeString } from "../../utils/global.utils";
 // Types
 import { PetCardProps as Props } from "./PetCard.types";
 import styles from "../../styles/Common.module.css";
-import { format } from "date-fns";
 
 const PetCard: React.FC<Props> = props => {
   const { pet } = props;
@@ -48,12 +50,12 @@ const PetCard: React.FC<Props> = props => {
               mb="2"
               backgroundColor="info"
               color="white"
-              width="min-content"
+              width="max-content"
               px="2"
               borderRadius="xl"
               fontSize="14"
             >
-              {breed}
+              {toCapitalizeString(breed)}
             </Text>
             <Box
               display="flex"
@@ -64,7 +66,7 @@ const PetCard: React.FC<Props> = props => {
               <Box display="flex" alignItems="center" width="55%">
                 <i className="fa-solid fa-paw"></i>
                 <Text px="2" height="min-content" fontSize="16">
-                  {name}
+                  {toCapitalizeString(name)}
                 </Text>
               </Box>
               <Box display="flex" alignItems="center" width="40%">

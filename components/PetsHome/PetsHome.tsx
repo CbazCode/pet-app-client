@@ -29,7 +29,7 @@ const PetsHome: React.FC<Props> = props => {
             <FormControl>
               <Input id="searcher" type="text" {...register("searcher")} />
             </FormControl>
-            <Button type="submit" outline="none">
+            <Button type="submit" outline="none" colorScheme="facebook">
               Buscar
             </Button>
           </Box>
@@ -37,7 +37,7 @@ const PetsHome: React.FC<Props> = props => {
       </FormProvider>
       <Link href="/pets/add">
         <a>
-          <Button width="100%" marginBottom="30">
+          <Button width="100%" marginBottom="30" colorScheme="telegram">
             Agregar a un amingo canino
           </Button>
         </a>
