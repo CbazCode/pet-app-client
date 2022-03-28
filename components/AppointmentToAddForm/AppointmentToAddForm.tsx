@@ -73,43 +73,82 @@ const AppointmentToAddForm: React.FC<Props> = props => {
   };
 
   return (
-    <Box className="AppointmentToAddForm">
+    <Box
+      className="AppointmentToAddForm"
+      bgColor="facebook.100"
+      height="100vh"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      position="relative"
+    >
       <Box
-        px="4"
         display="flex"
-        height="100vh"
-        width="100vw"
+        width="50%"
         justifyContent="center"
         alignItems="center"
         flexDirection="column"
+        bgColor="facebook.200"
+        px="10"
+        pb="10"
       >
         <Text fontSize="32" fontWeight="bold" py="8">
           Es momento de registrar la cita
         </Text>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <FormControl>
+        <form onSubmit={handleSubmit(onSubmit)} style={{ width: "100%" }}>
+          <FormControl py="4">
             <FormLabel htmlFor="veterinarianName">
               Nombre del veterinario
             </FormLabel>
-            <Input id="name" type="text" {...register("veterinarianName")} />
+            <Input
+              id="name"
+              type="text"
+              {...register("veterinarianName")}
+              bgColor="white"
+              width="100%"
+            />
           </FormControl>
-          <FormControl>
+          <FormControl py="4">
             <FormLabel htmlFor="bloodTest">Test de sangre</FormLabel>
-            <Input id="bloodTest" type="text" {...register("bloodTest")} />
+            <Input
+              id="bloodTest"
+              type="text"
+              {...register("bloodTest")}
+              bgColor="white"
+            />
           </FormControl>
-          <FormControl>
+          <FormControl py="4">
             <FormLabel htmlFor="diagnosis">Diagnostico</FormLabel>
-            <Input id="diagnosis" type="text" {...register("diagnosis")} />
+            <Input
+              id="diagnosis"
+              type="text"
+              {...register("diagnosis")}
+              bgColor="white"
+            />
           </FormControl>
-          <FormControl>
+          <FormControl py="4">
             <FormLabel>Fecha de la cita</FormLabel>
-            <input type="date" {...register("date")} />
+            <input
+              type="date"
+              {...register("date")}
+              style={{
+                width: "100%",
+                borderRadius: "8px",
+                padding: "8px",
+                border: "solid 1px #e2e4e7"
+              }}
+            />
           </FormControl>
-          <FormControl>
+          <FormControl py="4">
             <FormLabel htmlFor="medications">Medicamentos</FormLabel>
-            <Input id="medications" type="text" {...register("medications")} />
+            <Input
+              id="medications"
+              type="text"
+              {...register("medications")}
+              bgColor="white"
+            />
           </FormControl>
-          <FormControl>
+          <FormControl py="4">
             <FormLabel>Foto de rayos X</FormLabel>
             <input
               type="file"
@@ -117,7 +156,9 @@ const AppointmentToAddForm: React.FC<Props> = props => {
               onChange={e => setFileSelected(e.target.files?.[0])}
             />
           </FormControl>
-          <Button type="submit">Guardar cita</Button>
+          <Button type="submit" width="100%" colorScheme="facebook" mt="4">
+            Guardar cita
+          </Button>
         </form>
       </Box>
     </Box>

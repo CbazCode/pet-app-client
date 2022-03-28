@@ -12,3 +12,7 @@
   object-fit: cover;
   border-radius: 10px;
 }
+
+.imageTable {
+  border-radius: "50%";
+}

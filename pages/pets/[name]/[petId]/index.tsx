@@ -1,4 +1,5 @@
 import { GetStaticProps } from "next";
+import Appointments from "../../../../components/Appointments/Appointments";
 import { fetchAppointments } from "../../../../services/appointment/appointment.service";
 import { Appointment } from "../../../../services/appointment/appointment.service.types";
 
@@ -8,12 +9,8 @@ interface Props {
 
 const PetAppointments: React.FC<Props> = props => {
   const { appointments } = props;
-  console.log({ appointments });
-  return (
-    <>
-      <p>Pet appointment</p>
-    </>
-  );
+
+  return <Appointments appointments={appointments} />;
 };
 
 export const getServerSideProps: GetStaticProps = async ctx => {

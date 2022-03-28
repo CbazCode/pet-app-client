@@ -1,5 +1,12 @@
 import { useEffect } from "react";
-import { FormControl, FormLabel, Input } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  FormControl,
+  FormLabel,
+  Input,
+  Text
+} from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
 import Link from "next/link";
 import { FormProvider, useForm } from "react-hook-form";
@@ -46,25 +53,58 @@ export const Login = () => {
 
   return (
     <>
-      <div>
-        <h1>Login</h1>
-        <FormProvider {...form}>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <FormControl>
-              <FormLabel htmlFor="email">Email</FormLabel>
-              <Input id="email" type="email" {...register("email")} />
-            </FormControl>
-            <FormControl>
-              <FormLabel htmlFor="email">Password</FormLabel>
-              <Input id="password" type="password" {...register("password")} />
-            </FormControl>
-            <Button type="submit">Log In</Button>
-          </form>
-        </FormProvider>
-        <Link href="/register">
-          <a>Ya tienes cuenta?</a>
-        </Link>
-      </div>
+      <Flex>
+        <img
+          src="https://www.nationalgeographic.com.es/medio/2022/01/02/los-perros-son-capaces-de-anticipar-cuando-estamos-a-punto-de-volver-a-casa_4f6f27aa_1280x853.jpg"
+          alt="perro"
+          style={{ objectFit: "cover", width: "80%", height: "100vh" }}
+        />
+        <Flex
+          justifyContent="center"
+          alignItems="center"
+          flexDirection="column"
+          bgColor="twitter.300"
+          width="25%"
+        >
+          <Box>
+            <Text fontSize={40} fontWeight="semibold">
+              Iniciar Sesion
+            </Text>
+            <FormProvider {...form}>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <FormControl my="2">
+                  <FormLabel htmlFor="email" fontSize={20}>
+                    Email
+                  </FormLabel>
+                  <Input
+                    id="email"
+                    type="email"
+                    {...register("email")}
+                    bgColor="white"
+                  />
+                </FormControl>
+                <FormControl my="2">
+                  <FormLabel htmlFor="email" fontSize={20}>
+                    Password
+                  </FormLabel>
+                  <Input
+                    id="password"
+                    type="password"
+                    {...register("password")}
+                    bgColor="white"
+                  />
+                </FormControl>
+                <Button type="submit" width="100%" my="4" colorScheme="purple">
+                  Log In
+                </Button>
+              </form>
+            </FormProvider>
+            <Link href="/register">
+              <a>Ya tienes cuenta?</a>
+            </Link>
+          </Box>
+        </Flex>
+      </Flex>
     </>
   );
 };
